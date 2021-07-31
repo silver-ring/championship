@@ -19,15 +19,23 @@ class ChampionshipController(val championshipService: ChampionshipService) {
     @PostMapping("/start")
     fun startChampionship(@RequestBody startChampionshipRequest: StartChampionshipRequest) {
         val participants = championshipService.findActiveParticipants()
+
         if (participants.size % 2 != 0) {
             throw ApiValidationException("Number Of Participants Must Be Even")
         }
-        if (startChampionshipRequest.numberOfGroups < 1) {
-            throw ApiValidationException("Group Should Be At Least 1")
+
+        if (startChampionshipRequest.numberOfGroups < 2) {
+            throw ApiValidationException("Number Of Groups Should Be At Least 2")
         }
+
+        if (startChampionshipRequest.numberOfGroups % 2 != 0) {
+            throw ApiValidationException("Number Of Groups Must Be Even")
+        }
+
         if (startChampionshipRequest.numberOfGroups > (participants.size / 2)) {
-            throw ApiValidationException("Group Can't Be More Than Half Of The Number Of Participants")
+            throw ApiValidationException("Number Of Groups Can't Be More Than Half Of The Number Of Participants")
         }
+
         val existingMatches = championshipService.findAndCloseMatches()
         val numberOfGroups = startChampionshipRequest.numberOfGroups
         val allMatches = championshipService.generateListOfMatches(participants, numberOfGroups)

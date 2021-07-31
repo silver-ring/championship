@@ -45,7 +45,7 @@ internal class ChampionshipControllerTest {
     }
 
     @Test
-    fun startChampionship_validateNumberOfParticipants() {
+    fun startChampionship_validateNumberOfParticipantsIsEven() {
         val participantToDelete = participantRepo.findAll().toList()[0]
         participantRepo.delete(participantToDelete)
         val participantsCount = participantRepo.count()
@@ -64,6 +64,22 @@ internal class ChampionshipControllerTest {
     }
 
     @Test
+    fun startChampionship_validateNumberOfGroupsIsEven() {
+        val response = this.mockMvc.perform(
+            post("/championship/start")
+                .content(ObjectMapper().writeValueAsString(StartChampionshipRequest(3)))
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .andReturn().response
+        val status = response.status
+        val content = jacksonObjectMapper().readValue<ErrorResponse>(response.contentAsString)
+        val matchesCount = matchRepo.count()
+        assertEquals(400, status)
+        assertEquals("Number Of Groups Must Be Even", content.message)
+        assertEquals(0, matchesCount)
+    }
+
+    @Test
     fun startChampionship_validateMinNumberOfGroups() {
         val response = this.mockMvc.perform(
             post("/championship/start")
@@ -75,7 +91,7 @@ internal class ChampionshipControllerTest {
         val content = jacksonObjectMapper().readValue<ErrorResponse>(response.contentAsString)
         val matchesCount = matchRepo.count()
         assertEquals(400, status)
-        assertEquals("Group Should Be At Least 1", content.message)
+        assertEquals("Number Of Groups Should Be At Least 2", content.message)
         assertEquals(0, matchesCount)
     }
 
@@ -91,7 +107,7 @@ internal class ChampionshipControllerTest {
         val content = jacksonObjectMapper().readValue<ErrorResponse>(response.contentAsString)
         val matchesCount = matchRepo.count()
         assertEquals(400, status)
-        assertEquals("Group Can't Be More Than Half Of The Number Of Participants", content.message)
+        assertEquals("Number Of Groups Can't Be More Than Half Of The Number Of Participants", content.message)
         assertEquals(0, matchesCount)
     }
 

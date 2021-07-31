@@ -5,6 +5,8 @@ import com.championship.backend.models.Match
 import com.championship.backend.models.Participant
 import com.championship.backend.repos.MatchRepo
 import com.championship.backend.repos.ParticipantRepo
+import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 import org.springframework.stereotype.Service
 
 @Service

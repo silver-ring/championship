@@ -19,7 +19,6 @@ class ChampionshipController(val championshipService: ChampionshipService) {
     @PostMapping("/start")
     fun startChampionship(@RequestBody startChampionshipRequest: StartChampionshipRequest) {
         val participants = championshipService.findActiveParticipants()
-        println(participants.size)
         if (participants.size % 2 != 0) {
             throw ApiValidationException("Number Of Participants Must Be Even")
         }

@@ -18,15 +18,18 @@
 
     .name {
       background-color: $color1;
-      padding: 20px 25px;
+      margin: 30px 0;
       width: 100rem;
+      height: 3rem;
+      line-height: 3rem;
     }
 
     .score {
       display: flex;
       flex-direction: column;
       background-color: $color3;
-      padding: 0 25px;
+      padding: 0 20px;
+      margin: 15px 0;
       color: $color1;
     }
     .score:first-child {

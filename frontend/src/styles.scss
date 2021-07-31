@@ -7,3 +7,13 @@ $color3: #5B5941;
 $main-font: Montserrat, sans-serif;
 $main-font-size: 18px;
 $label-font-size: 12px;
+
+button {
+  border-radius: 10px;
+  background-color: #C8C8C8;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  margin: 5px;
+}

@@ -1,0 +1,41 @@
+@import "src/styles";
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: space-between;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    text-align: center;
+    min-height: 50px;
+    line-height: 50px;
+
+    .column_header {
+      background-color: $primary;
+      border-right: $color3 1px solid;
+    }
+
+    .column_header:last-child {
+      background-color: $primary;
+      border-right: none;
+    }
+
+    .column {
+      border-top: $color3 1px solid;
+      background-color: $secondary;
+      border-top: $color3 1px solid;
+      border-right: $color3 1px solid;
+    }
+
+    .column:last-child {
+      background-color: $secondary;
+      border-right: none;
+    }
+
+  }
+}

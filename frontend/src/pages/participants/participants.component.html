@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="actions">
+    <div>
+      <button *ngIf="showContinueChampionship" (click)="continueChampionship()">Continue Championship</button>
+    </div>
+    <div>
+      <button class="submit-participant-request" (click)="showParticipantForm = true">Submit Participant Request</button>
+      <button (click)="showGroupsForm = true">Start Championship</button>
+    </div>
+  </div>
+  <app-data-table [headers]="headers" [data]="data" [actions]="actions"></app-data-table>
+  <app-model [(show)]="showParticipantForm" [formFields]="participantFormFields" (ok)="saveParticipant($event)"></app-model>
+  <app-model [(show)]="showGroupsForm" [formFields]="groupsFormFields" (ok)="submitStartChampionShip($event)"></app-model>
+</div>

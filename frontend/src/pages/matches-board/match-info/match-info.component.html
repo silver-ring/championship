@@ -1,0 +1,22 @@
+<div class="match_container">
+  <div class="participant">
+    <div class="name">
+      {{match?.participant1?.name}}
+    </div>
+    <div class="score">
+      <button (click)="addScore(match?.participant1?.id)">+</button>
+      {{match?.participant1Score}}
+      <button (click)="minusScore(match?.participant1?.id)">-</button>
+    </div>
+  </div>
+  <div class="participant">
+    <div class="score">
+      <button (click)="addScore(match?.participant2?.id)">+</button>
+      {{match?.participant2Score}}
+      <button (click)="minusScore(match?.participant2?.id)">-</button>
+    </div>
+    <div class="name">
+      {{match?.participant2?.name}}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+ALTER TABLE Match ADD COLUMN IF NOT EXISTS round_closed boolean NOT NULL;

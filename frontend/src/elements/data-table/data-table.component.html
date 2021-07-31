@@ -1,0 +1,11 @@
+<div class="table">
+    <div class="row">
+      <div class="column_header" *ngFor="let header of headers" [style.flex]="header.flex">{{header.name}}</div>
+    </div>
+    <div class="row" *ngFor="let row of data;index as i">
+      <div class="column" *ngFor="let item of row" [style.flex]="headers[item.index].flex">{{item.value}}</div>
+      <div class="column" *ngFor="let action of actions[i]" [style.flex]="headers[action.index].flex">
+        <button (click)="action.actions()">{{action.label}}</button>
+      </div>
+    </div>
+</div>

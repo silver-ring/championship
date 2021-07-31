@@ -1,0 +1,41 @@
+@import "src/styles";
+
+.match_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 25px 0;
+  padding: 10px 0;
+  background-color: $color2;
+  height: 60px;
+
+  .participant {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    overflow: hidden;
+
+    .name {
+      background-color: $color1;
+      padding: 20px 25px;
+      width: 100rem;
+    }
+
+    .score {
+      display: flex;
+      flex-direction: column;
+      background-color: $color3;
+      padding: 0 25px;
+      color: $color1;
+    }
+    .score:first-child {
+      margin-left: 24px;
+    }
+    .score:last-child {
+      margin-right: 24px;
+    }
+  }
+
+}
+

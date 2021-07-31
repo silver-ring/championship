@@ -1,0 +1,13 @@
+<div class="model" *ngIf="show">
+  <div class="container">
+    <div class="input" *ngFor="let formFieldKey of formFields.keys()">
+      <div class="label"><label [for]="formFieldKey">{{formFields?.get(formFieldKey)?.label}}</label></div>
+      <div class="name"><input [id]="formFieldKey" [value]="formFields?.get(formFieldKey)?.value"
+                               (change)="onChange($event)" type="text" /></div>
+    </div>
+    <div class="action">
+      <div><button (click)="onOk()">ok</button></div>
+      <div><button (click)="onCancel()">cancel</button></div>
+    </div>
+  </div>
+</div>

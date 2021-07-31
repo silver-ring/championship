@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="actions">
+    <div>
+      <button (click)="participantsList()">Participants List</button>
+    </div>
+    <div>
+      <button (click)="closeRound()">Close Round</button>
+    </div>
+  </div>
+  <div class="group_container" *ngFor="let groupMatchesKey of matchesMap.keys()">
+    <div class="group_title">
+      Group {{groupMatchesKey}}
+    </div>
+    <app-match-info class="match_container" *ngFor="let match of matchesMap.get(groupMatchesKey)" [match]="match">
+    </app-match-info>
+  </div>
+</div>

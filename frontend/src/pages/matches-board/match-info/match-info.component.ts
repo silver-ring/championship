@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
-import {take, takeLast} from 'rxjs/operators';
+import {takeLast} from 'rxjs/operators';
 import {MatchService} from '../../../services/match.service';
 import {MatchResource} from '../../../resources/match.resource';
 import {ParticipantResource} from '../../../resources/participant.resource';

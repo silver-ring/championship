@@ -8,7 +8,6 @@ import {take} from 'rxjs/operators';
 @Component({
   templateUrl: './matches-board.component.html',
   styleUrls: ['./matches-board.component.scss'],
-  providers: [MatchService, ChampionshipService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MatchesBoardComponent implements OnInit {

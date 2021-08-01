@@ -11,7 +11,6 @@ import {MatchService} from '../../services/match.service';
 @Component({
   templateUrl: './participants.component.html',
   styleUrls: ['./participants.component.scss'],
-  providers: [ParticipantService, ChampionshipService, MatchService]
 })
 export class ParticipantsComponent implements OnInit {
   showParticipantForm = false;
